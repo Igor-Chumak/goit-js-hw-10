@@ -6,10 +6,12 @@ const API_KEY =
 
 function fetchBreeds() {
   const url = `${API_URL}/breeds?${API_KEY}`;
-  return fetch(url)
-    .then(res => res.json())
-    .then(console.log)
-    .catch(() => onShowError());
+  return (
+    fetch(url)
+      .then(res => res.json())
+      // .then(console.log)
+      .catch(() => onShowError())
+  );
 }
 
 function fetchCatByBreed(breed_id) {}

@@ -18,7 +18,7 @@ const refs = {
   catInfo: document.querySelector('.cat-info'),
 };
 
-refs.loaderWait.classList.add('is-hidden');
-refs.alertError.classList.add('is-hidden');
+// refs.loaderWait.classList.add('is-hidden');
+// refs.alertError.classList.add('is-hidden');
 
 fetchBreeds();
