@@ -6,9 +6,17 @@ const API_KEY =
 
 function fetchBreeds() {
   const url = `${API_URL}/breeds?${API_KEY}`;
-  return fetch(url).then(res => res.json());
+  return fetch(url)
+    .then(res => res.json())
+    .then(console.log)
+    .catch(() => onShowError());
 }
 
 function fetchCatByBreed(breed_id) {}
+
+function onShowError() {
+  //  Notify.failure('Error loading page...');
+  console.error('Error loading page...');
+}
 
 export { fetchBreeds, fetchCatByBreed };
