@@ -1,0 +1,2 @@
+!function(){var e,t={select:document.querySelector(".breed-select"),animalCard:document.querySelector(".cat-info"),loaderWait:document.querySelector(".loader"),alertError:document.querySelector(".error"),catInfo:document.querySelector(".cat-info")};t.loaderWait.classList.add("is-hidden"),t.alertError.classList.add("is-hidden"),e="".concat("https://api.thecatapi.com/v1","/breeds?").concat("api_key=live_yW6ggR3i34HsiLDgf08CYeP40RDSpnwnrV2v1Rdhq6jx8BHcc17ytNdQVYHj12Vz"),fetch(e).then((function(e){return e.json()}))}();
+//# sourceMappingURL=index.0f75b7fd.js.map

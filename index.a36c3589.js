@@ -1,0 +1,2 @@
+const e={select:document.querySelector(".breed-select"),animalCard:document.querySelector(".cat-info"),loaderWait:document.querySelector(".loader"),alertError:document.querySelector(".error"),catInfo:document.querySelector(".cat-info")};e.loaderWait.classList.add("is-hidden"),e.alertError.classList.add("is-hidden"),fetch("https://api.thecatapi.com/v1/breeds?api_key=live_yW6ggR3i34HsiLDgf08CYeP40RDSpnwnrV2v1Rdhq6jx8BHcc17ytNdQVYHj12Vz").then((e=>e.json()));
+//# sourceMappingURL=index.a36c3589.js.map
