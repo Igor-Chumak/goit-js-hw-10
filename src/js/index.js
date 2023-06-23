@@ -22,6 +22,7 @@ const refs = {
 // refs.alertError.classList.add('is-hidden');
 
 fetchBreeds().then(breeds => markupSelect(breeds));
+refs.select.addEventListener('change', onChoiceAnimal);
 
 //       ---    functions    ---
 
@@ -34,4 +35,11 @@ function markupSelect(items) {
   //   select: '#first-select',
   // });
   // return;
+}
+
+function onChoiceAnimal(e) {
+  const breed_ids = event.target.value;
+  console.log('breed_ids: ', breed_ids);
+  fetchCatByBreed(breed_ids);
+  return;
 }
