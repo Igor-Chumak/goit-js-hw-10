@@ -1,5 +1,7 @@
 import '../css/style.css';
 
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
+
 // npm i notiflix
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -18,3 +20,5 @@ const refs = {
 
 refs.loaderWait.classList.add('is-hidden');
 refs.alertError.classList.add('is-hidden');
+
+fetchBreeds();
