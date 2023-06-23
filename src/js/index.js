@@ -21,4 +21,17 @@ const refs = {
 // refs.loaderWait.classList.add('is-hidden');
 // refs.alertError.classList.add('is-hidden');
 
-fetchBreeds();
+fetchBreeds().then(breeds => markupSelect(breeds));
+
+//       ---    functions    ---
+
+function markupSelect(items) {
+  const markup = items
+    .map(item => `<option value="${item.id}">${item.name}</option>`)
+    .join('');
+  refs.select.insertAdjacentHTML('afterbegin', markup);
+  // new SlimSelect({
+  //   select: '#first-select',
+  // });
+  // return;
+}
