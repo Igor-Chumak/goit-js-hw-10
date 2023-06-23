@@ -1,0 +1,2 @@
+document.querySelector(".breed-select"),document.querySelector(".cat-info"),document.querySelector(".loader"),document.querySelector(".error"),document.querySelector(".cat-info");fetch("https://api.thecatapi.com/v1/breeds?api_key=live_yW6ggR3i34HsiLDgf08CYeP40RDSpnwnrV2v1Rdhq6jx8BHcc17ytNdQVYHj12Vz").then((e=>e.json())).catch((()=>{console.error("Error loading page...")}));
+//# sourceMappingURL=index.cc1477ea.js.map
