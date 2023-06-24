@@ -42,15 +42,15 @@ function markupSelect(items) {
   const markup = items
     .map(item => `<option value="${item.id}">${item.name}</option>`)
     .join('');
-  refs.select.insertAdjacentHTML('afterbegin', markup);
   refs.select.insertAdjacentHTML(
     'afterbegin',
     `<option data-placeholder="true"></option>`
   );
+  refs.select.insertAdjacentHTML('beforeend', markup);
   new SlimSelect({
     select: '.breed-select',
     settings: {
-      placeholderText: 'bree',
+      placeholderText: 'Choise breed of cat',
     },
   });
   return;
