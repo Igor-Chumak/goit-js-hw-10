@@ -59,6 +59,7 @@ function markupSelect(items) {
 function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
   // console.log('breed_ids: ', breed_ids);
+  refs.animalCard.innerHTML = '';
   toggleShowLoadCatInfo();
   return fetchCatByBreed(breed_ids)
     .then(res => {
