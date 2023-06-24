@@ -21,7 +21,9 @@ const refs = {
 // refs.loaderWait.classList.add('is-hidden');
 // refs.alertError.classList.add('is-hidden');
 
-fetchBreeds().then(breeds => markupSelect(breeds));
+fetchBreeds()
+  .then(breeds => markupSelect(breeds))
+  .catch(() => onShowError());
 refs.select.addEventListener('change', onChoiceAnimal);
 
 //       ---    functions    ---
@@ -40,6 +42,24 @@ function markupSelect(items) {
 function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
   console.log('breed_ids: ', breed_ids);
-  fetchCatByBreed(breed_ids);
-  return;
+  fetchCatByBreed(breed_ids)
+    .then(res => ([br] = res))
+    .then(breeds
+ => console.log(br))
+    // .then(res => )
+    .catch(() => onShowError());
+  // return;
+}
+
+function markupCatsCard(cat) {
+  const markup = `<img src="${cat.url}" alt='cat' width=700><div class="cat-description">
+    <p class='cat-titles'> ${animal.breeds[0].name}</p>
+    <p> ${animal.breeds[0].description} </p>
+    <p><span class='cat-temperament'>Temperament:</span> ${animal.breeds[0].temperament}</p></div>`;
+  refs.animalCard.innerHTML = markup;
+}
+
+function onShowError() {
+  //  Notify.failure('Error loading page...');
+  console.error('Error loading page...');
 }
