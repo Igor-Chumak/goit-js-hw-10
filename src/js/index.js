@@ -12,10 +12,9 @@ const notifyWarning = {
   timeout: 1500,
 };
 
-// npm install @slim-select/vue
-// import { defineComponent } from 'vue';
-// import SlimSelect from '@slim-select/vue';
-// import 'slim-select/dist/slimselect.css';
+// npm install slim-select
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 const refs = {
   select: document.querySelector('.breed-select'),
@@ -44,10 +43,17 @@ function markupSelect(items) {
     .map(item => `<option value="${item.id}">${item.name}</option>`)
     .join('');
   refs.select.insertAdjacentHTML('afterbegin', markup);
-  // new SlimSelect({
-  //   select: '#first-select',
-  // });
-  // return;
+  // refs.select.insertAdjacentHTML(
+  //   'afterbegin',
+  //   `<option data-placeholder="true"></option>`
+  // );
+  new SlimSelect({
+    select: '.breed-select',
+    // settings: {
+    //   placeholderText: 'bree',
+    // },
+  });
+  return;
 }
 
 function onChoiceAnimal(e) {
