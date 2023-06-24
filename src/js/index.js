@@ -58,7 +58,7 @@ function markupSelect(items) {
 
 function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
-  console.log('breed_ids: ', breed_ids);
+  // console.log('breed_ids: ', breed_ids);
   toggleShowLoadCatInfo();
   return fetchCatByBreed(breed_ids)
     .then(res => {
