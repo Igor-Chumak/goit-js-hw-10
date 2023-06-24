@@ -44,10 +44,10 @@ function onChoiceAnimal(e) {
   console.log('breed_ids: ', breed_ids);
   fetchCatByBreed(breed_ids)
     .then(res => {
+      console.log([res]);
+      console.log(...[res]);
       markupCatsCard(...res);
     })
-    // .then(console.log(br))
-    // .then(res => )
     .catch(() => onShowError());
   // return;
 }
