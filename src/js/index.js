@@ -3,7 +3,14 @@ import '../css/style.css';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 // npm i notiflix
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+const notifyWarning = {
+  width: '500px',
+  fontSize: '25px',
+  position: 'center-top',
+  opacity: 0.7,
+  timeout: 1500,
+};
 
 // npm install @slim-select/vue
 // import { defineComponent } from 'vue';
@@ -44,8 +51,6 @@ function onChoiceAnimal(e) {
   console.log('breed_ids: ', breed_ids);
   fetchCatByBreed(breed_ids)
     .then(res => {
-      console.log([res]);
-      console.log(...[res]);
       markupCatsCard(...res);
     })
     .catch(() => onShowError());
@@ -61,6 +66,6 @@ function markupCatsCard(cat) {
 }
 
 function onShowError() {
-  //  Notify.failure('Error loading page...');
-  console.error('Error loading page...');
+  Notify.failure('Error loading page...', notifyWarning);
+  // console.error('Error loading page...');
 }
