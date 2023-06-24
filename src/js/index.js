@@ -26,7 +26,7 @@ const refs = {
 };
 
 refs.loaderWait.classList.add('is-hidden');
-// refs.alertError.classList.add('is-hidden');
+refs.alertError.classList.add('is-hidden');
 
 fetchBreeds()
   .then(breeds => {
@@ -85,6 +85,5 @@ function onShowError() {
     'Oops! Something went wrong! Try reloading the page!',
     notifyWarning
   );
-  // Notify.failure('Error loading page...', notifyWarning);
-  // console.error('Error loading page...');
+  // refs.alertError.classList.remove('is-hidden');
 }
