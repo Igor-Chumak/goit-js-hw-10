@@ -16,10 +16,12 @@ function fetchBreeds() {
 
 function fetchCatByBreed(breedId) {
   const url = `${API_URL}/images/search?${API_KEY}&breed_ids=${breedId}`;
-  return fetch(url)
-    .then(res => res.json())
-    .then(console.log)
-    .catch(() => onShowError());
+  return (
+    fetch(url)
+      .then(res => res.json())
+      // .then(console.log)
+      .catch(() => onShowError())
+  );
 }
 
 function onShowError() {

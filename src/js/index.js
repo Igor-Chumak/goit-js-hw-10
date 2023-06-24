@@ -43,9 +43,10 @@ function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
   console.log('breed_ids: ', breed_ids);
   fetchCatByBreed(breed_ids)
-    .then(res => ([br] = res))
-    .then(breeds
- => console.log(br))
+    .then(res => {
+      markupCatsCard(...res);
+    })
+    // .then(console.log(br))
     // .then(res => )
     .catch(() => onShowError());
   // return;
@@ -53,9 +54,9 @@ function onChoiceAnimal(e) {
 
 function markupCatsCard(cat) {
   const markup = `<img src="${cat.url}" alt='cat' width=700><div class="cat-description">
-    <p class='cat-titles'> ${animal.breeds[0].name}</p>
-    <p> ${animal.breeds[0].description} </p>
-    <p><span class='cat-temperament'>Temperament:</span> ${animal.breeds[0].temperament}</p></div>`;
+    <p class='cat-titles'> ${cat.breeds[0].name}</p>
+    <p> ${cat.breeds[0].description} </p>
+    <p><span class='cat-temperament'>Temperament:</span> ${cat.breeds[0].temperament}</p></div>`;
   refs.animalCard.innerHTML = markup;
 }
 
