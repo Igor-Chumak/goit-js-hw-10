@@ -53,11 +53,13 @@ function markupSelect(items) {
 function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
   console.log('breed_ids: ', breed_ids);
+  toggleShowLoadCatInfo();
   return fetchCatByBreed(breed_ids)
     .then(res => {
       markupCatsCard(...res);
     })
-    .catch(() => onShowError());
+    .catch(() => onShowError())
+    .finally(() => toggleShowLoadCatInfo());
 }
 
 function markupCatsCard(cat) {
@@ -71,6 +73,11 @@ function markupCatsCard(cat) {
 function toggleShowLoadListSelection() {
   refs.loaderWait.classList.toggle('is-hidden');
   refs.select.classList.toggle('is-hidden');
+}
+
+function toggleShowLoadCatInfo() {
+  refs.loaderWait.classList.toggle('is-hidden');
+  refs.catInfo.classList.toggle('is-hidden');
 }
 
 function onShowError() {
