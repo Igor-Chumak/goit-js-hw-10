@@ -6,27 +6,12 @@ const API_KEY =
 
 function fetchBreeds() {
   const url = `${API_URL}/breeds?${API_KEY}`;
-  return (
-    fetch(url)
-      .then(res => res.json())
-      // .then(console.log)
-      .catch(() => onShowError())
-  );
+  return fetch(url).then(res => res.json());
 }
 
 function fetchCatByBreed(breedId) {
   const url = `${API_URL}/images/search?${API_KEY}&breed_ids=${breedId}`;
-  return (
-    fetch(url)
-      .then(res => res.json())
-      // .then(console.log)
-      .catch(() => onShowError())
-  );
-}
-
-function onShowError() {
-  //  Notify.failure('Error loading page...');
-  console.error('Error loading page...');
+  return fetch(url).then(res => res.json());
 }
 
 export { fetchBreeds, fetchCatByBreed };
