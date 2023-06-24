@@ -50,7 +50,7 @@ function markupSelect(items) {
   new SlimSelect({
     select: '.breed-select',
     settings: {
-      placeholderText: 'Choise breed of cat',
+      placeholderText: 'Choose breed of cat',
     },
   });
   return;
