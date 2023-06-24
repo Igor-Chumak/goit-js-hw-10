@@ -25,13 +25,17 @@ const refs = {
   catInfo: document.querySelector('.cat-info'),
 };
 
-// refs.loaderWait.classList.add('is-hidden');
+refs.loaderWait.classList.add('is-hidden');
 // refs.alertError.classList.add('is-hidden');
 
 fetchBreeds()
-  .then(breeds => markupSelect(breeds))
-  .catch(() => onShowError());
-refs.select.addEventListener('change', onChoiceAnimal);
+  .then(breeds => {
+    toggleShowLoadListSelection();
+    markupSelect(breeds);
+  })
+  .catch(() => onShowError())
+  .finally(() => toggleShowLoadListSelection());
+return refs.select.addEventListener('change', onChoiceAnimal);
 
 //       ---    functions    ---
 
@@ -49,12 +53,11 @@ function markupSelect(items) {
 function onChoiceAnimal(e) {
   const breed_ids = event.target.value;
   console.log('breed_ids: ', breed_ids);
-  fetchCatByBreed(breed_ids)
+  return fetchCatByBreed(breed_ids)
     .then(res => {
       markupCatsCard(...res);
     })
     .catch(() => onShowError());
-  // return;
 }
 
 function markupCatsCard(cat) {
@@ -65,7 +68,16 @@ function markupCatsCard(cat) {
   refs.animalCard.innerHTML = markup;
 }
 
+function toggleShowLoadListSelection() {
+  refs.loaderWait.classList.toggle('is-hidden');
+  refs.select.classList.toggle('is-hidden');
+}
+
 function onShowError() {
-  Notify.failure('Error loading page...', notifyWarning);
+  Notify.failure(
+    'Oops! Something went wrong! Try reloading the page!',
+    notifyWarning
+  );
+  // Notify.failure('Error loading page...', notifyWarning);
   // console.error('Error loading page...');
 }
